@@ -2,7 +2,7 @@
 *Angry Birds*
 
 
-Lecture Slides: [Lecture 6](https://github.com/jazorhe/GD50-angry-birds/blob/main/lecture6.pdf)
+Lecture Slides: [Lecture x](https://github.com/jazorhe/GD50-xxx/blob/main/lecturex.pdf)
 
 <img src="img/title.png" width="700">
 
@@ -47,6 +47,8 @@ Lecture Slides: [Lecture 6](https://github.com/jazorhe/GD50-angry-birds/blob/mai
 ### Objectives
 -   [ ] [**Code Reading**](#code-reading)Read and understand all of the Legend of Zelda source code from Lecture 5.
     -   [ ] [`main.lua`](#mainlua)
+    -   [ ] [`file.lua`](#filelua)
+    -   [ ] [`file.lua`](#filelua)
     -   [ ] [`file.lua`](#filelua)
 
 -   [ ] [**Task**](#task):
