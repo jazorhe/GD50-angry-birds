@@ -75,23 +75,29 @@ function love.keypressed(key)
 end
 
 function love.update(dt)
-    
+
     -- update world, calculating collisions
     world:update(dt)
 end
 
 function love.draw()
     push:start()
-    
+
     -- draw a polygon shape by getting the world points for our body, using the box shape's
     -- definition as a reference
-    love.graphics.setColor(0, 255, 0, 255)
+    love.graphics.setColor(rgba(117, 104, 126, 0.94))
+    -- love.graphics.setColor(0, 255, 0, 255)
     love.graphics.polygon('fill', boxBody:getWorldPoints(boxShape:getPoints()))
 
     -- draw a line that represents our ground, calculated from ground body and edge shape
-    love.graphics.setColor(255, 0, 0, 255)
+    love.graphics.setColor(rgba(213, 106, 53, 0.96))
+    -- love.graphics.setColor(255, 0, 0, 255)
     love.graphics.setLineWidth(2)
     love.graphics.line(groundBody:getWorldPoints(edgeShape:getPoints()))
 
     push:finish()
+end
+
+function rgba(r, g, b, a)
+    return r/255, g/255, b/255, a
 end

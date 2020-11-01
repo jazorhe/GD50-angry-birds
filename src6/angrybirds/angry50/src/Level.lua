@@ -73,7 +73,7 @@ function Level:init()
             if a:getUserData() == 'Player' then
                 local velX, velY = a:getBody():getLinearVelocity()
                 local sumVel = math.abs(velX) + math.abs(velY)
-                
+
                 if sumVel > 20 then
                     table.insert(self.destroyedBodies, b:getBody())
                 end
@@ -97,7 +97,7 @@ function Level:init()
     -- the remaining three functions here are sample definitions, but we are not
     -- implementing any functionality with them in this demo; use-case specific
     function endContact(a, b, coll)
-        
+
     end
 
     function preSolve(a, b, coll)
@@ -153,7 +153,7 @@ function Level:update(dt)
 
     -- destroy all bodies we calculated to destroy during the update call
     for k, body in pairs(self.destroyedBodies) do
-        if not body:isDestroyed() then 
+        if not body:isDestroyed() then
             body:destroy()
         end
     end
@@ -186,7 +186,7 @@ function Level:update(dt)
     if self.launchMarker.launched then
         local xPos, yPos = self.launchMarker.alien.body:getPosition()
         local xVel, yVel = self.launchMarker.alien.body:getLinearVelocity()
-        
+
         -- if we fired our alien to the left or it's almost done rolling, respawn
         if xPos < 0 or (math.abs(xVel) + math.abs(yVel) < 1.5) then
             self.launchMarker.alien.body:destroy()
@@ -219,17 +219,17 @@ function Level:render()
     -- render instruction text if we haven't launched bird
     if not self.launchMarker.launched then
         love.graphics.setFont(gFonts['medium'])
-        love.graphics.setColor(0, 0, 0, 255)
+        love.graphics.setColor(rgba(0, 0, 0, 255))
         love.graphics.printf('Click and drag circular alien to shoot!',
             0, 64, VIRTUAL_WIDTH, 'center')
-        love.graphics.setColor(255, 255, 255, 255)
+        love.graphics.setColor(rgba(255, 255, 255, 255))
     end
 
     -- render victory text if all aliens are dead
     if #self.aliens == 0 then
         love.graphics.setFont(gFonts['huge'])
-        love.graphics.setColor(0, 0, 0, 255)
+        love.graphics.setColor(rgba(0, 0, 0, 255))
         love.graphics.printf('VICTORY', 0, VIRTUAL_HEIGHT / 2 - 32, VIRTUAL_WIDTH, 'center')
-        love.graphics.setColor(255, 255, 255, 255)
+        love.graphics.setColor(rgba(255, 255, 255, 255))
     end
 end

@@ -33,13 +33,13 @@ function AlienLaunchMarker:init(world)
 end
 
 function AlienLaunchMarker:update(dt)
-    
+
     -- perform everything here as long as we haven't launched yet
     if not self.launched then
 
         -- grab mouse coordinates
         local x, y = push:toGame(love.mouse.getPosition())
-        
+
         -- if we click the mouse and haven't launched, show arrow preview
         if love.mouse.wasPressed(1) and not self.launched then
             self.aiming = true
@@ -72,13 +72,13 @@ end
 
 function AlienLaunchMarker:render()
     if not self.launched then
-        
+
         -- render base alien, non physics based
-        love.graphics.draw(gTextures['aliens'], gFrames['aliens'][9], 
+        love.graphics.draw(gTextures['aliens'], gFrames['aliens'][9],
             self.shiftedX - 17.5, self.shiftedY - 17.5)
 
         if self.aiming then
-            
+
             -- render arrow if we're aiming, with transparency based on slingshot distance
             local impulseX = (self.baseX - self.shiftedX) * 10
             local impulseY = (self.baseY - self.shiftedY) * 10
@@ -89,10 +89,10 @@ function AlienLaunchMarker:render()
 
             -- http://www.iforce2d.net/b2dtut/projected-trajectory
             for i = 1, 90 do
-                
+
                 -- magenta color that starts off slightly transparent
-                love.graphics.setColor(255, 80, 255, (255 / 12) * i)
-                
+                love.graphics.setColor(rgba(255, 80, 255, (255 / 12) * i))
+
                 -- trajectory X and Y for this iteration of the simulation
                 trajX = self.shiftedX + i * 1/60 * impulseX
                 trajY = self.shiftedY + i * 1/60 * impulseY + 0.5 * (i * i + i) * gravY * 1/60 * 1/60
@@ -103,8 +103,8 @@ function AlienLaunchMarker:render()
                 end
             end
         end
-        
-        love.graphics.setColor(255, 255, 255, 255)
+
+        love.graphics.setColor(rgba(255, 255, 255, 255))
     else
         self.alien:render()
     end
