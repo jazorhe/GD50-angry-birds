@@ -35,19 +35,19 @@ Lecture Slides: [Lecture 6](https://github.com/jazorhe/GD50-angry-birds/blob/mai
 
 
 ### Box2d
-####The World:
+#### The World:
 -   Performs all physics calculations on all "Bodies" it holds a reference to.
 -   Possesses a gravity value that affects every Body in the scene in addition to each Body's own characterstics.
 -   `love.physics.newWorld(gravX, gravY, [sleep])`: Creates a new World object to simulate physics, as provided by BoxeD, with gravX and gravY for global gravity and an optional sleep parameter to allow non-moving Bodies in our world to sleep (to not have their physics calculated when they're completely still, for performance gains)
 
 
-####Bodies:
+#### Bodies:
 -   Abstract containers that manage position and velocity
 -   Can be manipulated via forces (or just raw positional assignment) to bring about physical behaviour when updated by the `world`
 -   `love.physics.newBody(world, x, y, type)`: Creates a new Body in our `world` at x and y, with type being what kind of physical body it it ('static', 'dynamic' or 'kinematic', which we will explore)
 
 
-####Fixtures:
+#### Fixtures:
 -   The individual components of Bodies that possess physical characteristics to influence Bodies' movements.
 -   Attach shapes to Bodies, influencing collision.
 -   Have densities, frictional characteristics, restitution (bounciness), and more
