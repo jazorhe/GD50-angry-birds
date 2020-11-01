@@ -2,7 +2,7 @@
 *Angry Birds*
 
 
-Lecture Notes: [Lecture 5](https://github.com/jazorhe/GD50-angry-birds/blob/main/lecture6.pdf)
+Lecture Notes: [Lecture 6](https://github.com/jazorhe/GD50-angry-birds/blob/main/lecture6.pdf)
 
 <img src="img/title.png" width="700">
 
