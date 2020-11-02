@@ -293,7 +293,7 @@ Also, keep **Data Driven Design** in mind as mentioned above.
 -   These split copies should all have same physics with the original `Alien` and will interact with the game world
 
 **How I achieved**:
-
+-   Be careful not to update or render any destroyed bodies, always check and remove those bodies
 
 ```lua
 if love.keyboard.wasPressed('space') then
@@ -317,6 +317,7 @@ end
 Attending Github and itch.io's Game Jam: Game Off 2020
 
 ## Submission
+[![GD50 - Angry Birds Submission](http://img.youtube.com/vi/UEY1jqL087E/0.jpg)](http://www.youtube.com/watch?v=UEY1jqL087E "GD50 - Angry Birds Submission")
 
 
 ## Useful Links

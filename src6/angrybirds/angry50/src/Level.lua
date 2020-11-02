@@ -270,10 +270,4 @@ function Level:render()
         love.graphics.setColor(rgba(255, 255, 255, 255))
     end
 
-    love.graphics.setFont(gFonts['huge'])
-    love.graphics.setColor(rgba(0, 0, 0, 255))
-    love.graphics.printf('Num of players: ' .. tostring(#self.playerAliens), 0, VIRTUAL_HEIGHT / 2 - 32, VIRTUAL_WIDTH, 'center')
-    love.graphics.setColor(rgba(255, 255, 255, 255))
-
-
 end
