@@ -8,6 +8,7 @@ function Level:init()
     -- bodies we will destroy after the world update cycle; destroying these in the
     -- actual collision callbacks can cause stack overflow and other errors
     self.destroyedBodies = {}
+    self.playerAliens = {}
 
     -- define collision callbacks for our world; the World object expects four,
     -- one for different stages of any given collision
@@ -174,21 +175,59 @@ function Level:update(dt)
         end
     end
 
-    -- replace launch marker if original alien stopped moving
-    if self.launchMarker.launched then
-        local xPos, yPos = self.launchMarker.alien.body:getPosition()
-        local xVel, yVel = self.launchMarker.alien.body:getLinearVelocity()
-
-        -- if we fired our alien to the left or it's almost done rolling, respawn
-        if xPos < 0 or (math.abs(xVel) + math.abs(yVel) < 1.5) then
-            self.launchMarker.alien.body:destroy()
-            self.launchMarker = AlienLaunchMarker(self.world)
-
-            -- re-initialize level if we have no more aliens
-            if #self.aliens == 0 then
-                gStateMachine:change('start')
+    for i = #self.playerAliens, 1, -1 do
+        if self.playerAliens[i].body:isDestroyed() then
+            table.remove(self.playerAliens, i)
+            if #self.playerAliens == 0 then
+                self.launchMarker.launched = false
             end
         end
+    end
+
+    -- replace launch marker if original alien stopped moving
+    if self.launchMarker.launched then
+
+        if self.launchMarker.alien then
+            if #self.playerAliens == 0 then
+                table.insert(self.playerAliens, self.launchMarker.alien)
+            elseif not self.launchMarker.alien.body:isDestroyed() then
+                local xPos, yPos = self.launchMarker.alien.body:getPosition()
+                local xVel, yVel = self.launchMarker.alien.body:getLinearVelocity()
+
+                if love.keyboard.wasPressed('space') then
+                    table.insert(self.playerAliens, Alien(self.world, 'round', xPos, yPos - 35, 'Player'))
+                    local alienHigh = #self.playerAliens
+
+                    table.insert(self.playerAliens, Alien(self.world, 'round', xPos, yPos + 35, 'Player'))
+                    local alienLow = #self.playerAliens
+
+                    self.playerAliens[alienHigh].body:setLinearVelocity(xVel, yVel - 15)
+                    self.playerAliens[alienHigh].fixture:setRestitution(0.4)
+                    self.playerAliens[alienHigh].body:setAngularDamping(1)
+                    self.playerAliens[alienLow].body:setLinearVelocity(xVel, yVel + 15)
+                    self.playerAliens[alienLow].fixture:setRestitution(0.4)
+                    self.playerAliens[alienLow].body:setAngularDamping(1)
+                end
+            end
+        end
+
+        if  #self.playerAliens == 0 then
+            self.launchMarker = AlienLaunchMarker(self.world)
+        elseif not self.launchMarker.alien.body:isDestroyed() then
+            for k, player in pairs(self.playerAliens) do
+                local xPos, yPos = player.body:getPosition()
+                local xVel, yVel = player.body:getLinearVelocity()
+
+                if xPos < 0 or (math.abs(xVel) + math.abs(yVel) < 1.5) then
+                    table.insert(self.destroyedBodies, player.body)
+
+                    if #self.aliens == 0 then
+                        gStateMachine:change('start')
+                    end
+                end
+            end
+        end
+
     end
 end
 
@@ -199,6 +238,12 @@ function Level:render()
     end
 
     self.launchMarker:render()
+
+    for k, player in pairs(self.playerAliens) do
+        if not player.body:isDestroyed() then
+            player:render()
+        end
+    end
 
     for k, alien in pairs(self.aliens) do
         alien:render()
@@ -224,4 +269,11 @@ function Level:render()
         love.graphics.printf('VICTORY', 0, VIRTUAL_HEIGHT / 2 - 32, VIRTUAL_WIDTH, 'center')
         love.graphics.setColor(rgba(255, 255, 255, 255))
     end
+
+    love.graphics.setFont(gFonts['huge'])
+    love.graphics.setColor(rgba(0, 0, 0, 255))
+    love.graphics.printf('Num of players: ' .. tostring(#self.playerAliens), 0, VIRTUAL_HEIGHT / 2 - 32, VIRTUAL_WIDTH, 'center')
+    love.graphics.setColor(rgba(255, 255, 255, 255))
+
+
 end
