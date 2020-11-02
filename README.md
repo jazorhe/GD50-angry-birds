@@ -3,7 +3,7 @@
 
 Its core mechanics is the physics behind the components in the game, it features gravity, collisions, pulley systems and breakable objects, bringing the simple shoot and hit experience fun to play with. It opens up the grand mobile game era in the last decade and put some extremely valuable insights into how to create new games that will be suitable for the new platform.
 
-
+ 
 <https://www.angrybirds.com/>
 <https://en.wikipedia.org/wiki/Angry_Birds>
 
