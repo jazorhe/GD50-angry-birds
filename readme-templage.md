@@ -1,6 +1,5 @@
-# GD50-angry-birds
-*Angry Birds*
-
+# GD50-xxxx
+*Description*
 
 Lecture Slides: [Lecture x](https://github.com/jazorhe/GD50-xxx/blob/main/lecturex.pdf)
 
