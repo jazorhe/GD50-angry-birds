@@ -111,13 +111,13 @@ Lecture Slides: [Lecture 6](https://github.com/jazorhe/GD50-angry-birds/blob/mai
 
 ## Assignment
 ### Objectives
--   [ ] [**Code Reading**](#code-reading)Read and understand all of the Legend of Zelda source code from Lecture 5.
+-   [x] [**Code Reading**](#code-reading)Read and understand all of the Legend of Zelda source code from Lecture 5.
     -   [x] [`main.lua`](#mainlua)
     -   [x] [`Dependencies.lua`, `constants.lua` and `Util.lua`](#dependencieslua-constantslua-and-utillua)
-    -   [ ] [`Background.lua`](#backgroundlua)
-    -   [ ] [`Alien.lua`, `AlienLaunchMarker.lua` and `Obstacle.lua`](#alienlua-alienlaunchmarkerlua-and-obstaclelua)
-    -   [ ] [`Level.lua`](#levellua)
-    -   [ ] [`StateMachine and States`](#statemachine-and-states)
+    -   [x] [`Background.lua`](#backgroundlua)
+    -   [x] [`Alien.lua`, `AlienLaunchMarker.lua` and `Obstacle.lua`](#alienlua-alienlaunchmarkerlua-and-obstaclelua)
+    -   [x] [`Level.lua`](#levellua)
+    -   [x] [`StateMachine and States`](#statemachine-and-states)
 
 
 -   [ ] [**Triple Aliens**](#task): Implement it such that when the player presses the space bar after they’ve launched an `Alien` (and it hasn’t hit anything yet), split the `Alien` into three Aliens that all behave just like the base `Alien`.
