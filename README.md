@@ -1,6 +1,11 @@
 # GD50-angry-birds
-*Angry Birds*
+*Angry Birds*, first released in 2009, is a series that hugely influenced the mobile game industry. The series utilises the touch screen function of a modern smartphone and introduced a simple, casual but fun way to play games on the mobile phones.
 
+Its core mechanics is the physics behind the components in the game, it features gravity, collisions, pulley systems and breakable objects, bringing the simple shoot and hit experience fun to play with. It opens up the grand mobile game era in the last decade and put some extremely valuable insights into how to create new games that will be suitable for the new platform.
+
+
+<https://www.angrybirds.com/>
+<https://en.wikipedia.org/wiki/Angry_Birds>
 
 Lecture Slides: [Lecture 6](https://github.com/jazorhe/GD50-angry-birds/blob/main/lecture6.pdf)
 
