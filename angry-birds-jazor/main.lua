@@ -100,7 +100,6 @@ function love.draw()
 end
 
 function rgba(r, g, b, a)
-
     if not a then
         a = 1
     end

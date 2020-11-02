@@ -1,16 +1,3 @@
---[[
-    GD50
-    Angry Birds
-
-    Author: Colton Ogden
-    cogden@cs50.harvard.edu
-
-    An Obstacle is any physics-based construction that forms the current level,
-    usually shielding the aliens the player is trying to kill; they can form houses,
-    boxes, anything the developer wishes. Depending on what kind they are, they are
-    typically rectangular or polygonal.
-]]
-
 Obstacle = Class{}
 
 function Obstacle:init(world, shape, x, y)
@@ -27,7 +14,7 @@ function Obstacle:init(world, shape, x, y)
 
     self.world = world
 
-    self.body = love.physics.newBody(self.world, 
+    self.body = love.physics.newBody(self.world,
         self.startX or math.random(VIRTUAL_WIDTH), self.startY or math.random(VIRTUAL_HEIGHT - 35), 'dynamic')
 
     -- assign width and height based on shape to create physics shape

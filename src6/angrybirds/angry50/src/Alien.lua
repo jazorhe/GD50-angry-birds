@@ -1,11 +1,3 @@
---[[
-    GD50
-    Angry Birds
-
-    Author: Colton Ogden
-    cogden@cs50.harvard.edu
-]]
-
 Alien = Class{}
 
 function Alien:init(world, type, x, y, userData)
@@ -14,7 +6,7 @@ function Alien:init(world, type, x, y, userData)
     self.world = world
     self.type = type or 'square'
 
-    self.body = love.physics.newBody(self.world, 
+    self.body = love.physics.newBody(self.world,
         x or math.random(VIRTUAL_WIDTH), y or math.random(VIRTUAL_HEIGHT - 35),
         'dynamic')
 

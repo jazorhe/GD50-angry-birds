@@ -1,11 +1,3 @@
---[[
-    GD50
-    Angry Birds
-
-    Author: Colton Ogden
-    cogden@cs50.harvard.edu
-]]
-
 StartState = Class{__includes = BaseState}
 
 function StartState:init()
