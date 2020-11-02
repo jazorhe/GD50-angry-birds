@@ -93,8 +93,6 @@ Lecture Slides: [Lecture 6](https://github.com/jazorhe/GD50-angry-birds/blob/mai
 ### Other Notes
 #### Collision Callback
 -   <https://love2d.org/wiki/Tutorial:PhysicsCollisionCallbacks>
-
-
 -   Destroying Bodies
 -   Multiple fixtures in a body
 -   Remove from a table in reverse index order
